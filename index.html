@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home Print Studio</title>
 
+<!-- Anti-cache -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -14,18 +19,36 @@ body{
   font-family:'Poppins',sans-serif;
   background:linear-gradient(120deg,#fdfbfb,#ebedee);
   color:#222;
+  overflow-x:hidden;
 }
 
+html{scroll-behavior:smooth}
+
+/* NAV */
 nav{
   position:sticky;top:0;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(12px);
   padding:15px 40px;
   display:flex;justify-content:space-between;align-items:center;
+  z-index:1000;
 }
 
-.logo{height:60px;width:60px;transition:0.3s}
-.logo:hover{transform:scale(1.1)}
+nav h2{display:flex;align-items:center;gap:12px;font-weight:700}
+
+.logo{
+  height:60px;width:60px;
+  border-radius:14px;
+  background:#fff;
+  padding:6px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  transition:0.4s;
+}
+
+.logo:hover{
+  transform:scale(1.2) rotate(6deg);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
 
 nav a{
   text-decoration:none;
@@ -33,8 +56,10 @@ nav a{
   color:#333;
   transition:0.3s;
 }
-nav a:hover{color:#6c63ff}
 
+nav a:hover{color:#6c63ff;transform:scale(1.1)}
+
+/* HERO */
 header{
   min-height:100vh;
   display:flex;
@@ -46,16 +71,23 @@ header{
 }
 
 .logo-large{
-  height:180px;width:180px;
-  margin-bottom:10px;
+  height:200px;width:200px;
+  background:#fff;
+  padding:20px;
+  border-radius:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  animation:float 3s ease-in-out infinite, glow 2s infinite alternate;
 }
 
 header h1{
-  font-size:clamp(40px,6vw,65px);
+  font-size:clamp(40px,6vw,70px);
+  margin-top:10px;
+  animation:slideUp 1s ease forwards;
 }
 
 header p{
-  font-size:18px;
+  font-size:20px;
+  animation:fadeIn 2s ease;
 }
 
 button{
@@ -66,13 +98,18 @@ button{
   background:#000;
   color:#fff;
   cursor:pointer;
-  transition:0.3s;
+  transition:0.4s;
 }
-button:hover{transform:scale(1.1)}
 
+button:hover{
+  transform:scale(1.15);
+  background:#6c63ff;
+}
+
+/* SERVICES */
 .container{padding:60px 20px;max-width:1100px;margin:auto}
 
-h2{text-align:center;margin-bottom:30px}
+h2{text-align:center;margin-bottom:30px;animation:fadeIn 1.5s ease}
 
 .services{
   display:grid;
@@ -81,23 +118,31 @@ h2{text-align:center;margin-bottom:30px}
 }
 
 .service{
-  background:#fff;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
   padding:25px;
-  border-radius:15px;
+  border-radius:20px;
   text-align:center;
-  transition:0.3s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.5s;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 .service:hover{
-  transform:translateY(-10px);
+  transform:translateY(-15px) scale(1.1) rotate(1deg);
+  background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
+  color:white;
 }
 
+.service h3{transition:0.4s}
+.service:hover h3{transform:scale(1.2)}
+
+/* CONTACT */
 .contact{
   margin-top:50px;
   padding:30px;
-  border-radius:15px;
-  background:#fff;
+  border-radius:20px;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
   text-align:center;
 }
 
@@ -109,17 +154,43 @@ h2{text-align:center;margin-bottom:30px}
   text-decoration:none;
   color:white;
   background:#6c63ff;
-  transition:0.3s;
+  transition:0.4s;
 }
 
 .contact a:hover{
-  transform:scale(1.1);
+  transform:scale(1.2);
+  background:#000;
 }
 
 footer{text-align:center;padding:20px;background:#111;color:#fff}
 
+/* ANIMATIONS */
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
+}
+
+@keyframes glow{
+  from{box-shadow:0 0 15px rgba(255,255,255,0.6)}
+  to{box-shadow:0 0 40px rgba(255,255,255,1)}
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes slideUp{
+  from{transform:translateY(60px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+/* MOBILE */
 @media(max-width:600px){
-  .logo-large{height:140px;width:140px}
+  nav{flex-direction:column;gap:10px;padding:15px}
+  nav div{display:flex;gap:15px}
+  .logo-large{height:160px;width:160px}
 }
 
 </style>
@@ -128,7 +199,7 @@ footer{text-align:center;padding:20px;background:#111;color:#fff}
 <body>
 
 <nav>
-  <h2><img src="./logo.png" class="logo"> Home Print</h2>
+  <h2><img src="./logo.png" class="logo" alt="Logo"> Home Print</h2>
   <div>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
@@ -136,7 +207,7 @@ footer{text-align:center;padding:20px;background:#111;color:#fff}
 </nav>
 
 <header>
-  <img src="./logo.png" class="logo-large">
+  <img src="./logo.png" class="logo-large" alt="Logo">
   <h1>Home Print Studio</h1>
   <p>Your Local Print Solution</p>
   <button onclick="document.getElementById('contact').scrollIntoView()">Contact Now</button>
@@ -168,7 +239,7 @@ footer{text-align:center;padding:20px;background:#111;color:#fff}
     <a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
     <a href="tel:+918839603922">Call Now</a>
 
-    <p style="margin-top:20px;">Ratlam, Madhya Pradesh</p>
+    <p style="margin-top:20px;">8, Ojha Khali Kunjdo Ka Waas, Ratlam</p>
   </div>
 </div>
 
