@@ -5,57 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home Print Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#fff;
-  overflow-x:hidden;
+  background:linear-gradient(120deg,#fdfbfb,#ebedee);
+  color:#222;
 }
 
-h1,h2,h3{
-  font-family:'Orbitron',sans-serif;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-/* NAV */
 nav{
   position:sticky;top:0;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(10px);
   padding:15px 40px;
   display:flex;justify-content:space-between;align-items:center;
 }
 
-.logo{height:60px;width:60px;transition:0.5s}
-.logo:hover{transform:scale(1.3) rotate(10deg)}
+.logo{height:60px;width:60px;transition:0.3s}
+.logo:hover{transform:scale(1.1)}
 
 nav a{
-  color:#fff;
   text-decoration:none;
   margin-left:20px;
-  position:relative;
-  transition:0.4s;
+  color:#333;
+  transition:0.3s;
 }
+nav a:hover{color:#6c63ff}
 
-nav a::after{
-  content:"";
-  position:absolute;
-  width:0%;height:2px;
-  background:#00f7ff;
-  left:0;bottom:-5px;
-  transition:0.4s;
-}
-
-nav a:hover::after{width:100%}
-nav a:hover{color:#00f7ff}
-
-/* HERO */
 header{
   min-height:100vh;
   display:flex;
@@ -63,47 +42,37 @@ header{
   justify-content:center;
   align-items:center;
   text-align:center;
+  background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
 }
 
 .logo-large{
-  height:220px;width:220px;
-  animation:float 3s infinite ease-in-out;
+  height:180px;width:180px;
+  margin-bottom:10px;
 }
 
 header h1{
-  font-size:clamp(40px,6vw,70px);
-  background:linear-gradient(90deg,#00f7ff,#ff00c8);
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:glitch 2s infinite;
+  font-size:clamp(40px,6vw,65px);
 }
 
 header p{
-  margin-top:10px;
   font-size:18px;
-  opacity:0.8;
-  animation:fadeIn 2s ease;
 }
 
 button{
   margin-top:20px;
-  padding:12px 30px;
+  padding:12px 25px;
   border:none;
   border-radius:30px;
-  background:linear-gradient(90deg,#00f7ff,#ff00c8);
-  color:#000;
-  font-weight:bold;
+  background:#000;
+  color:#fff;
   cursor:pointer;
-  transition:0.4s;
+  transition:0.3s;
 }
+button:hover{transform:scale(1.1)}
 
-button:hover{
-  transform:scale(1.2);
-  box-shadow:0 0 20px #00f7ff;
-}
-
-/* SERVICES */
 .container{padding:60px 20px;max-width:1100px;margin:auto}
+
+h2{text-align:center;margin-bottom:30px}
 
 .services{
   display:grid;
@@ -112,48 +81,23 @@ button:hover{
 }
 
 .service{
+  background:#fff;
   padding:25px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(10px);
+  border-radius:15px;
   text-align:center;
-  transition:0.5s;
-  position:relative;
-  overflow:hidden;
+  transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
-
-.service::before{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background:linear-gradient(120deg,transparent,#00f7ff,transparent);
-  top:-100%;left:0;
-  transition:0.6s;
-}
-
-.service:hover::before{top:100%}
 
 .service:hover{
-  transform:translateY(-15px) scale(1.1);
-  box-shadow:0 0 25px #00f7ff;
+  transform:translateY(-10px);
 }
 
-.service h3{
-  margin-bottom:10px;
-  transition:0.4s;
-}
-
-.service:hover h3{
-  color:#00f7ff;
-  transform:scale(1.2);
-}
-
-/* CONTACT */
 .contact{
   margin-top:50px;
   padding:30px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  background:#fff;
   text-align:center;
 }
 
@@ -162,41 +106,20 @@ button:hover{
   margin:10px;
   padding:12px 20px;
   border-radius:30px;
-  background:#00f7ff;
-  color:#000;
   text-decoration:none;
-  transition:0.4s;
+  color:white;
+  background:#6c63ff;
+  transition:0.3s;
 }
 
 .contact a:hover{
-  transform:scale(1.2);
-  background:#ff00c8;
-  color:#fff;
+  transform:scale(1.1);
 }
 
-footer{text-align:center;padding:20px;background:#000}
+footer{text-align:center;padding:20px;background:#111;color:#fff}
 
-/* ANIMATIONS */
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-20px)}
-  100%{transform:translateY(0)}
-}
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-@keyframes glitch{
-  0%{text-shadow:2px 2px #ff00c8,-2px -2px #00f7ff}
-  50%{text-shadow:-2px 2px #ff00c8,2px -2px #00f7ff}
-  100%{text-shadow:2px -2px #ff00c8,-2px 2px #00f7ff}
-}
-
-/* MOBILE */
 @media(max-width:600px){
-  .logo-large{height:160px;width:160px}
+  .logo-large{height:140px;width:140px}
 }
 
 </style>
@@ -215,7 +138,7 @@ footer{text-align:center;padding:20px;background:#000}
 <header>
   <img src="./logo.png" class="logo-large">
   <h1>Home Print Studio</h1>
-  <p>Modern • Fast • Creative Printing</p>
+  <p>Your Local Print Solution</p>
   <button onclick="document.getElementById('contact').scrollIntoView()">Contact Now</button>
 </header>
 
@@ -225,12 +148,12 @@ footer{text-align:center;padding:20px;background:#000}
   <div class="services">
     <div class="service">
       <h3>Quick Printing</h3>
-      <p>High quality fast prints.</p>
+      <p>Fast, high-quality prints.</p>
     </div>
 
     <div class="service">
       <h3>Scanning</h3>
-      <p>Clear digital scans.</p>
+      <p>Clear and accurate scans.</p>
     </div>
 
     <div class="service">
@@ -241,8 +164,10 @@ footer{text-align:center;padding:20px;background:#000}
 
   <div class="contact" id="contact">
     <h2>Contact Us</h2>
+
     <a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
     <a href="tel:+918839603922">Call Now</a>
+
     <p style="margin-top:20px;">Ratlam, Madhya Pradesh</p>
   </div>
 </div>
