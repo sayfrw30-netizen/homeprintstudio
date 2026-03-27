@@ -72,6 +72,7 @@ header{
   text-align:center;
   background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
 }
+
 .logo-large{
   height:300px;
   width:300px;
@@ -141,13 +142,17 @@ h2{
 
 h2:hover{transform:scale(1.05);color:#6c63ff}
 
+/* ✅ UPDATED: single row layout */
 .services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
 .service{
+  flex:1;
+  min-width:250px;
   background:rgba(255,255,255,0.7);
   backdrop-filter:blur(10px);
   padding:25px;
@@ -163,7 +168,7 @@ h2:hover{transform:scale(1.05);color:#6c63ff}
   color:white;
 }
 
-/* ✅ ONLY NEW CSS ADDED */
+/* ✅ NEW: image styling */
 .service-img{
   width:100%;
   height:150px;
@@ -264,7 +269,6 @@ footer p:hover{
   nav div{display:flex;gap:15px}
   .logo-large{height:160px;width:160px}
 }
-
 </style>
 
 </head>
@@ -290,13 +294,14 @@ footer p:hover{
   <h2>Our Services</h2>
 
   <div class="services">
-    <div class="service">
-      <img src="./printing.jpg" class="service-img">
-      <h3>Quick Printing</h3>
-      <p>Fast, high-quality prints.</p>
-    </div>
 
 ```
+<div class="service">
+  <img src="./printing.jpg" class="service-img">
+  <h3>Quick Printing</h3>
+  <p>Fast, high-quality prints.</p>
+</div>
+
 <div class="service">
   <img src="./scanning.jpg" class="service-img">
   <h3>Scanning</h3>
