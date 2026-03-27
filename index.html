@@ -42,6 +42,26 @@ nav h2{display:flex;align-items:center;gap:12px;font-weight:700}
 
 .logo:hover{transform:scale(1.2) rotate(6deg)}
 
+nav a{
+  text-decoration:none;
+  margin-left:20px;
+  color:#333;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-5px;
+  width:0%;height:2px;
+  background:#6c63ff;
+  transition:0.3s;
+}
+
+nav a:hover::after{width:100%}
+nav a:hover{color:#6c63ff}
+
 /* HERO */
 header{
   min-height:100vh;
@@ -52,30 +72,74 @@ header{
   text-align:center;
   background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
 }
-
 .logo-large{
   height:300px;
   width:300px;
   padding:20px;
   border-radius:50%;
   box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  overflow:hidden;
+  transition: transform 0.4s ease;
   animation:float 3s ease-in-out infinite;
-  transition:0.4s;
 }
 
 .logo-large:hover{
-  transform:scale(1.2) translateY(-10px);
+  transform: scale(1.2) translateY(-10px);
+}
+
+.logo-large img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 header h1{
   font-size:clamp(40px,6vw,70px);
   margin-top:10px;
+  animation:slideUp 1s ease forwards;
+  transition:0.3s;
 }
 
-header p{font-size:20px}
+header h1:hover{
+  transform:scale(1.05);
+  color:#6c63ff;
+}
+
+header p{
+  font-size:20px;
+  animation:fadeIn 2s ease;
+  transition:0.3s;
+}
+
+header p:hover{color:#333;transform:scale(1.05)}
+
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#000;
+  color:#fff;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+button:hover{
+  transform:scale(1.15);
+  background:#6c63ff;
+}
 
 /* SERVICES */
 .container{padding:60px 20px;max-width:1100px;margin:auto}
+
+h2{
+  text-align:center;
+  margin-bottom:30px;
+  animation:fadeIn 1.5s ease;
+  transition:0.3s;
+}
+
+h2:hover{transform:scale(1.05);color:#6c63ff}
 
 .services{
   display:grid;
@@ -85,6 +149,7 @@ header p{font-size:20px}
 
 .service{
   background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
   padding:25px;
   border-radius:20px;
   text-align:center;
@@ -93,29 +158,71 @@ header p{font-size:20px}
 }
 
 .service:hover{
-  transform:translateY(-15px) scale(1.05);
+  transform:translateY(-15px) scale(1.1) rotate(1deg);
+  background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
+  color:white;
 }
 
-/* 🔥 NEW IMAGE STYLE */
-.service img{
+/* ✅ ONLY NEW CSS ADDED */
+.service-img{
   width:100%;
-  height:160px;
+  height:150px;
   object-fit:cover;
-  border-radius:15px;
-  margin-bottom:15px;
+  border-radius:12px;
+  margin-bottom:12px;
   transition:0.4s;
 }
 
-.service:hover img{
-  transform:scale(1.08);
+.service:hover .service-img{
+  transform:scale(1.05);
 }
 
+.service h3{
+  transition:0.4s;
+}
+
+.service:hover h3{
+  transform:scale(1.2);
+}
+
+.service h3:hover{
+  color:#6c63ff;
+  transform:scale(1.1);
+}
+
+.service p{
+  transition:0.3s;
+}
+
+.service p:hover{
+  transform:scale(1.05);
+  color:#444;
+}
+
+/* CONTACT */
 .contact{
   margin-top:50px;
   padding:30px;
   border-radius:20px;
   background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
   text-align:center;
+}
+
+.contact a{
+  display:inline-block;
+  margin:10px;
+  padding:12px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  background:#6c63ff;
+  transition:0.4s;
+}
+
+.contact a:hover{
+  transform:scale(1.2);
+  background:#000;
 }
 
 footer{
@@ -125,10 +232,39 @@ footer{
   color:#fff;
 }
 
-/* ANIMATION */
-@keyframes float{
-  50%{transform:translateY(-20px)}
+footer p{
+  transition:0.3s;
 }
+
+footer p:hover{
+  transform:scale(1.05);
+  color:#6c63ff;
+}
+
+/* ANIMATIONS */
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes slideUp{
+  from{transform:translateY(60px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  nav{flex-direction:column;gap:10px;padding:15px}
+  nav div{display:flex;gap:15px}
+  .logo-large{height:160px;width:160px}
+}
+
 </style>
 
 </head>
@@ -137,34 +273,38 @@ footer{
 
 <nav>
   <h2><img src="./logo.png" class="logo"> Home Print</h2>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <header>
   <img src="./logo.png" class="logo-large">
   <h1>Home Print Studio</h1>
   <p>Your Local Print Solution</p>
+  <button onclick="document.getElementById('contact').scrollIntoView()">Contact Now</button>
 </header>
 
 <div class="container" id="services">
-  <h2 style="text-align:center;margin-bottom:30px;">Our Services</h2>
+  <h2>Our Services</h2>
 
   <div class="services">
+    <div class="service">
+      <img src="./printing.jpg" class="service-img">
+      <h3>Quick Printing</h3>
+      <p>Fast, high-quality prints.</p>
+    </div>
 
 ```
 <div class="service">
-  <img src="./printing.jpg">
-  <h3>Quick Printing</h3>
-  <p>Fast, high-quality prints.</p>
-</div>
-
-<div class="service">
-  <img src="./scanning.jpg">
+  <img src="./scanning.jpg" class="service-img">
   <h3>Scanning</h3>
   <p>Clear and accurate scans.</p>
 </div>
 
 <div class="service">
-  <img src="./photocopy.jpg">
+  <img src="./photocopy.jpg" class="service-img">
   <h3>Photocopy</h3>
   <p>Affordable copies.</p>
 </div>
@@ -174,9 +314,14 @@ footer{
 
   <div class="contact" id="contact">
     <h2>Contact Us</h2>
-    <a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
-    <a href="tel:+918839603922">Call Now</a>
-    <p style="margin-top:20px;">Ratlam</p>
+
+```
+<a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
+<a href="tel:+918839603922">Call Now</a>
+
+<p style="margin-top:20px;">8, Ojha Khali Kunjdo Ka Waas, Ratlam</p>
+```
+
   </div>
 </div>
 
