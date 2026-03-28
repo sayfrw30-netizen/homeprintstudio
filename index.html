@@ -215,9 +215,9 @@ nav{
   animation-delay: 0.5s;
 }
 
-/* ORBITAL ANIMATION SECTION */
+/* ORBITAL ANIMATION SECTION - Larger size */
 .orbital-section {
-  background: linear-gradient(135deg, #0a0a2a, #1a1a3a);
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
   padding: 80px 20px;
   position: relative;
   overflow: hidden;
@@ -226,67 +226,67 @@ nav{
 .orbital-container {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: 600px;
+  max-width: 900px;
+  height: 900px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Center Circle */
+/* Center Circle - Larger */
 .center-circle {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 220px;
+  height: 220px;
   background: linear-gradient(135deg, #ffd966, #c9a0dc, #76d7c4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
-  box-shadow: 0 0 30px rgba(255,217,102,0.5);
+  box-shadow: 0 0 40px rgba(255,217,102,0.6);
   animation: centerPulse 2s ease-in-out infinite;
 }
 
 .center-circle span {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-align: center;
   background: rgba(0,0,0,0.3);
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Orbit Ring */
+/* Orbit Ring - Larger */
 .orbit-ring {
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  border: 2px dashed rgba(255,255,255,0.3);
+  border: 2px dashed rgba(0,0,0,0.2);
 }
 
-/* Container for rotating nodes - only this rotates */
+/* Container for rotating nodes - Larger */
 .rotating-nodes-container {
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: 600px;
+  height: 600px;
   animation: rotateOrbit 15s linear infinite;
 }
 
-/* Rotating Nodes - equidistant (120° apart) */
+/* Rotating Nodes - Larger */
 .rotating-node {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(135deg, rgba(255,217,102,0.25), rgba(201,160,220,0.35));
-  backdrop-filter: blur(10px);
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(255,217,102,0.3), rgba(201,160,220,0.4));
+  backdrop-filter: blur(8px);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -294,49 +294,52 @@ nav{
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255,255,255,0.5);
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  transform-origin: center;
+  border: 2px solid rgba(255,217,102,0.6);
+  box-shadow: 0 0 20px rgba(255,217,102,0.2);
 }
 
 .rotating-node:hover {
   transform: scale(1.15);
-  background: linear-gradient(135deg, rgba(255,217,102,0.5), rgba(201,160,220,0.6));
+  background: linear-gradient(135deg, rgba(255,217,102,0.6), rgba(201,160,220,0.7));
   border-color: #ffd966;
-  box-shadow: 0 0 30px rgba(255,217,102,0.6);
+  box-shadow: 0 0 30px rgba(255,217,102,0.5);
 }
 
 .rotating-node span {
-  color: white;
-  font-size: 0.9rem;
+  color: #333;
+  font-size: 1.2rem;
   font-weight: 600;
   padding: 10px;
   white-space: nowrap;
+  display: inline-block;
+  animation: counterRotate 15s linear infinite;
 }
 
-/* Position nodes at 120° intervals (equidistant) */
-/* Node 1 - 0° (top) */
+/* Perfect 120° Spacing with larger dimensions */
+/* Radius = 300px (half of 600px) */
+/* Angles: 90°, 210°, 330° - each exactly 120° apart */
+
+/* Node 1: 90° (12 o'clock) */
 .node-1 {
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Node 2 - 120° (bottom right) */
-.node-2 {
-  bottom: -30px;
-  right: -20px;
+  top: -25px;
+  left: 300px;
   transform: translate(-50%, -50%);
 }
 
-/* Node 3 - 240° (bottom left) */
-.node-3 {
-  bottom: -30px;
-  left: -20px;
-  transform: translate(50%, -50%);
+/* Node 2: 210° (7 o'clock position - exactly 120° from node 1) */
+.node-2 {
+  top: 495px;
+  left: 90px;
+  transform: translate(-50%, -50%);
 }
 
-/* Alternative positioning using calculations for better equidistance */
+/* Node 3: 330° (5 o'clock position - exactly 120° from node 2) */
+.node-3 {
+  top: 495px;
+  left: 510px;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes rotateOrbit {
   from {
     transform: rotate(0deg);
@@ -344,12 +347,6 @@ nav{
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Fix for node text not rotating - counter-rotate the text */
-.rotating-node span {
-  display: inline-block;
-  animation: counterRotate 15s linear infinite;
 }
 
 @keyframes counterRotate {
@@ -365,11 +362,11 @@ nav{
 @keyframes centerPulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 30px rgba(255,217,102,0.5);
+    box-shadow: 0 0 40px rgba(255,217,102,0.6);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(255,217,102,0.8);
+    box-shadow: 0 0 70px rgba(255,217,102,0.9);
   }
 }
 
@@ -392,36 +389,10 @@ nav{
 
 @keyframes floatNode {
   0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-8px);
-  }
-}
-
-.node-2 {
-  animation-name: floatNode2;
-}
-
-@keyframes floatNode2 {
-  0%, 100% {
     transform: translate(-50%, -50%) translateY(0);
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-8px);
-  }
-}
-
-.node-3 {
-  animation-name: floatNode3;
-}
-
-@keyframes floatNode3 {
-  0%, 100% {
-    transform: translate(50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(50%, -50%) translateY(-8px);
+    transform: translate(-50%, -50%) translateY(-12px);
   }
 }
 
@@ -595,48 +566,50 @@ footer p{
   }
   
   .orbital-container {
-    height: 450px;
+    height: 600px;
+    max-width: 600px;
   }
   
   .center-circle {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
   
   .center-circle span {
-    width: 80px;
-    height: 80px;
-    font-size: 0.9rem;
+    width: 120px;
+    height: 120px;
+    font-size: 1.2rem;
   }
   
   .orbit-ring,
   .rotating-nodes-container {
-    width: 280px;
-    height: 280px;
+    width: 400px;
+    height: 400px;
   }
   
   .rotating-node {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
   }
   
   .rotating-node span {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     white-space: normal;
   }
   
   .node-1 {
-    top: -35px;
+    top: -15px;
+    left: 200px;
   }
   
   .node-2 {
-    bottom: -20px;
-    right: -15px;
+    top: 330px;
+    left: 60px;
   }
   
   .node-3 {
-    bottom: -20px;
-    left: -15px;
+    top: 330px;
+    left: 340px;
   }
 }
 
@@ -651,22 +624,49 @@ footer p{
   }
   
   .orbital-container {
-    height: 350px;
+    height: 450px;
+    max-width: 450px;
+  }
+  
+  .center-circle {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .center-circle span {
+    width: 90px;
+    height: 90px;
+    font-size: 0.9rem;
   }
   
   .orbit-ring,
   .rotating-nodes-container {
-    width: 220px;
-    height: 220px;
+    width: 300px;
+    height: 300px;
   }
   
   .rotating-node {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
   }
   
   .rotating-node span {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .node-1 {
+    top: -10px;
+    left: 150px;
+  }
+  
+  .node-2 {
+    top: 247px;
+    left: 45px;
+  }
+  
+  .node-3 {
+    top: 247px;
+    left: 255px;
   }
 }
 </style>
@@ -715,7 +715,7 @@ footer p{
   </div>
 </div>
 
-<!-- ORBITAL ANIMATION SECTION -->
+<!-- ORBITAL ANIMATION SECTION - Larger size -->
 <section class="orbital-section">
   <div class="orbital-container">
     <!-- Center Circle with "Service" text -->
@@ -723,12 +723,12 @@ footer p{
       <span>Service</span>
     </div>
     
-    <!-- Static Orbit Ring (dashed circle) -->
+    <!-- Static Orbit Ring -->
     <div class="orbit-ring"></div>
     
-    <!-- Rotating Container - only this rotates -->
+    <!-- Rotating Container -->
     <div class="rotating-nodes-container">
-      <!-- Three Circles - positioned equidistantly (like triangle corners) -->
+      <!-- Three Circles - Perfect 120° Spacing -->
       <div class="rotating-node node-1">
         <span>Rapid</span>
       </div>
