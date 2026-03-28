@@ -47,10 +47,8 @@ nav{
 .nav-left h2{
   font-size:22px;
   font-weight:600;
-  line-height:1;
 }
 
-/* LOGO (FIXED ALIGNMENT) */
 .logo{
   height:42px;
   width:42px;
@@ -59,7 +57,6 @@ nav{
   background:white;
   padding:3px;
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
-  display:block;
 }
 
 /* HERO */
@@ -67,7 +64,6 @@ nav{
   position:relative;
   width:100%;
   height:100vh;
-  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -78,7 +74,6 @@ nav{
   position:absolute;
   width:100%;
   height:100%;
-  opacity:1; /* MORE VISIBLE */
 }
 
 .grid-content{
@@ -88,27 +83,20 @@ nav{
   text-align:center;
 }
 
-/* MAIN LOGO */
 .grid-content img{
   height:220px;
   width:220px;
   border-radius:50%;
   padding:20px;
   object-fit:cover;
-  display:block;
   margin:auto;
-
+  display:block;
   background: radial-gradient(circle at center, #ffffff 60%, transparent 61%),
               linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
-
-  box-shadow:
-    0 0 0 12px rgba(255,255,255,0.2),
-    0 20px 50px rgba(0,0,0,0.3);
-
+  box-shadow:0 0 0 12px rgba(255,255,255,0.2),0 20px 50px rgba(0,0,0,0.3);
   animation:float 3s ease-in-out infinite;
 }
 
-/* TEXT CANVAS */
 .text-canvas{
   width:100%;
   height:90px;
@@ -117,14 +105,8 @@ nav{
 /* SERVICES */
 .container{padding:60px 20px;max-width:1100px;margin:auto}
 
-h2{
-  text-align:center;
-  margin-bottom:30px;
-}
-
 .services{
   display:flex;
-  justify-content:space-between;
   gap:20px;
   flex-wrap:wrap;
 }
@@ -133,12 +115,10 @@ h2{
   flex:1;
   min-width:250px;
   background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(10px);
   padding:25px;
   border-radius:20px;
   text-align:center;
   transition:0.5s;
-  box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 .service:hover{
@@ -155,7 +135,6 @@ h2{
   margin-bottom:12px;
 }
 
-/* CONTACT */
 .contact{
   margin-top:50px;
   padding:30px;
@@ -172,12 +151,6 @@ h2{
   text-decoration:none;
   color:white;
   background:#6c63ff;
-  transition:0.4s;
-}
-
-.contact a:hover{
-  transform:scale(1.2);
-  background:#000;
 }
 
 footer{
@@ -187,7 +160,6 @@ footer{
   color:#fff;
 }
 
-/* ANIMATIONS */
 @keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-20px)}
@@ -211,10 +183,8 @@ footer{
   <div class="grid-content">
     <img src="./logo.png">
 
-    <!-- VAPOR TEXT -->
     <canvas id="text1" class="text-canvas"></canvas>
     <canvas id="text2" class="text-canvas"></canvas>
-
   </div>
 </div>
 
@@ -254,87 +224,78 @@ footer{
 </footer>
 
 <script>
-// GRID EFFECT (ENHANCED VISIBILITY)
+// GRID
 const canvas = document.getElementById("gridCanvas");
 const ctx = canvas.getContext("2d");
+let w,h,mouseX=-1000,mouseY=-1000;
 
-let width, height, mouseX=-1000, mouseY=-1000;
-
-function resize(){
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;}
+resize(); window.addEventListener("resize",resize);
 
 document.getElementById("gridSection").addEventListener("mousemove",(e)=>{
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  mouseX=e.clientX; mouseY=e.clientY;
 });
 
-function drawGrid(){
-  ctx.clearRect(0,0,width,height);
-
-  const size = 40;
-
-  for(let x=0;x<width;x+=size){
-    for(let y=0;y<height;y+=size){
-      let dist = Math.hypot(mouseX-x,mouseY-y);
-      let glow = Math.max(0,1-dist/180);
-
-      ctx.strokeStyle = `rgba(0,100,160,${0.5+glow})`;
-      ctx.lineWidth = 1 + glow*3;
-
-      ctx.strokeRect(x,y,size,size);
+function grid(){
+  ctx.clearRect(0,0,w,h);
+  for(let x=0;x<w;x+=40){
+    for(let y=0;y<h;y+=40){
+      let d=Math.hypot(mouseX-x,mouseY-y);
+      let g=Math.max(0,1-d/180);
+      ctx.strokeStyle=`rgba(0,100,160,${0.4+g})`;
+      ctx.lineWidth=1+g*3;
+      ctx.strokeRect(x,y,40,40);
     }
   }
-
-  requestAnimationFrame(drawGrid);
+  requestAnimationFrame(grid);
 }
-drawGrid();
+grid();
 
+// REVERSE PARTICLE BUILD TEXT
+function buildText(id,text,size){
+  const c=document.getElementById(id);
+  const x=c.getContext("2d");
 
-// VAPOR TEXT EFFECT
-function vaporizeText(id,text,size){
-  const canvas=document.getElementById(id);
-  const ctx=canvas.getContext("2d");
+  c.width=innerWidth;
+  c.height=90;
 
-  canvas.width=window.innerWidth;
-  canvas.height=90;
-
-  ctx.font=size+"px Poppins";
-  ctx.fillStyle="white";
-  ctx.textAlign="center";
-  ctx.fillText(text,canvas.width/2,60);
+  x.font=size+"px Poppins";
+  x.fillStyle="white";
+  x.textAlign="center";
+  x.fillText(text,c.width/2,60);
 
   let particles=[];
-  let data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+  let data=x.getImageData(0,0,c.width,c.height).data;
 
-  for(let y=0;y<canvas.height;y+=3){
-    for(let x=0;x<canvas.width;x+=3){
-      let i=(y*canvas.width+x)*4;
+  for(let y=0;y<c.height;y+=3){
+    for(let xPos=0;xPos<c.width;xPos+=3){
+      let i=(y*c.width+xPos)*4;
       if(data[i+3]>150){
-        particles.push({x,y,dx:(Math.random()-0.5)*2,dy:(Math.random()-0.5)*2,a:1});
+        particles.push({
+          tx:xPos,
+          ty:y,
+          x:Math.random()*c.width,
+          y:Math.random()*c.height,
+        });
       }
     }
   }
 
   function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    x.clearRect(0,0,c.width,c.height);
     particles.forEach(p=>{
-      p.x+=p.dx;
-      p.y+=p.dy;
-      p.a-=0.01;
-      ctx.fillStyle=`rgba(255,255,255,${p.a})`;
-      ctx.fillRect(p.x,p.y,2,2);
+      p.x += (p.tx - p.x)*0.05;
+      p.y += (p.ty - p.y)*0.05;
+      x.fillStyle="white";
+      x.fillRect(p.x,p.y,2,2);
     });
     requestAnimationFrame(animate);
   }
   animate();
 }
 
-vaporizeText("text1","Home Print Studio",55);
-vaporizeText("text2","Your Local Print Solution",28);
+buildText("text1","Home Print Studio",55);
+buildText("text2","Your Local Print Solution",28);
 
 </script>
 
