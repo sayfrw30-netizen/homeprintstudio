@@ -254,7 +254,6 @@ nav{
   font-size: 1.2rem;
   font-weight: 700;
   text-align: center;
-  padding: 15px;
   background: rgba(0,0,0,0.3);
   border-radius: 50%;
   width: 120px;
@@ -264,21 +263,29 @@ nav{
   justify-content: center;
 }
 
-/* Rotating Orbit Ring */
-.rotating-orbit {
+/* Orbit Ring */
+.orbit-ring {
   position: absolute;
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  animation: rotateOrbit 20s linear infinite;
+  border: 2px dashed rgba(255,255,255,0.3);
 }
 
-/* Rotating Nodes */
+/* Container for rotating nodes - only this rotates */
+.rotating-nodes-container {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  animation: rotateOrbit 15s linear infinite;
+}
+
+/* Rotating Nodes - equidistant (120° apart) */
 .rotating-node {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, rgba(255,217,102,0.2), rgba(201,160,220,0.3));
+  background: linear-gradient(135deg, rgba(255,217,102,0.25), rgba(201,160,220,0.35));
   backdrop-filter: blur(10px);
   border-radius: 50%;
   display: flex;
@@ -287,15 +294,16 @@ nav{
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255,255,255,0.4);
+  border: 2px solid rgba(255,255,255,0.5);
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transform-origin: center;
 }
 
 .rotating-node:hover {
   transform: scale(1.15);
-  background: linear-gradient(135deg, rgba(255,217,102,0.5), rgba(201,160,220,0.5));
+  background: linear-gradient(135deg, rgba(255,217,102,0.5), rgba(201,160,220,0.6));
   border-color: #ffd966;
-  box-shadow: 0 0 30px rgba(255,217,102,0.5);
+  box-shadow: 0 0 30px rgba(255,217,102,0.6);
 }
 
 .rotating-node span {
@@ -303,28 +311,57 @@ nav{
   font-size: 0.9rem;
   font-weight: 600;
   padding: 10px;
+  white-space: nowrap;
 }
 
-/* Node Positions on the rotating orbit */
-.node-rapid {
+/* Position nodes at 120° intervals (equidistant) */
+/* Node 1 - 0° (top) */
+.node-1 {
   top: -50px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.node-quality {
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
+/* Node 2 - 120° (bottom right) */
+.node-2 {
+  bottom: -30px;
+  right: -20px;
+  transform: translate(-50%, -50%);
 }
 
-.node-accurate {
-  right: -50px;
-  top: 50%;
-  transform: translateY(-50%);
+/* Node 3 - 240° (bottom left) */
+.node-3 {
+  bottom: -30px;
+  left: -20px;
+  transform: translate(50%, -50%);
 }
 
-/* Animation Keyframes */
+/* Alternative positioning using calculations for better equidistance */
+@keyframes rotateOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fix for node text not rotating - counter-rotate the text */
+.rotating-node span {
+  display: inline-block;
+  animation: counterRotate 15s linear infinite;
+}
+
+@keyframes counterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Center pulse animation */
 @keyframes centerPulse {
   0%, 100% {
     transform: scale(1);
@@ -336,51 +373,55 @@ nav{
   }
 }
 
-@keyframes rotateOrbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Individual floating animations for nodes */
 .rotating-node {
   animation: floatNode 3s ease-in-out infinite;
 }
 
-.node-rapid {
+.node-1 {
   animation-delay: 0s;
 }
 
-.node-quality {
-  animation-delay: 0.8s;
+.node-2 {
+  animation-delay: 0.5s;
 }
 
-.node-accurate {
-  animation-delay: 1.6s;
+.node-3 {
+  animation-delay: 1s;
 }
 
 @keyframes floatNode {
   0%, 100% {
-    transform: translateY(0) translateX(0);
+    transform: translateX(-50%) translateY(0);
   }
   50% {
-    transform: translateY(-8px) translateX(2px);
+    transform: translateX(-50%) translateY(-8px);
   }
 }
 
-.node-quality {
-  animation-name: floatNodeReverse;
+.node-2 {
+  animation-name: floatNode2;
 }
 
-@keyframes floatNodeReverse {
+@keyframes floatNode2 {
   0%, 100% {
-    transform: translateY(0) translateX(0);
+    transform: translate(-50%, -50%) translateY(0);
   }
   50% {
-    transform: translateY(8px) translateX(-2px);
+    transform: translate(-50%, -50%) translateY(-8px);
+  }
+}
+
+.node-3 {
+  animation-name: floatNode3;
+}
+
+@keyframes floatNode3 {
+  0%, 100% {
+    transform: translate(50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(50%, -50%) translateY(-8px);
   }
 }
 
@@ -565,10 +606,11 @@ footer p{
   .center-circle span {
     width: 80px;
     height: 80px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   
-  .rotating-orbit {
+  .orbit-ring,
+  .rotating-nodes-container {
     width: 280px;
     height: 280px;
   }
@@ -580,18 +622,21 @@ footer p{
   
   .rotating-node span {
     font-size: 0.7rem;
+    white-space: normal;
   }
   
-  .node-rapid {
+  .node-1 {
     top: -35px;
   }
   
-  .node-quality {
-    bottom: -35px;
+  .node-2 {
+    bottom: -20px;
+    right: -15px;
   }
   
-  .node-accurate {
-    right: -35px;
+  .node-3 {
+    bottom: -20px;
+    left: -15px;
   }
 }
 
@@ -609,7 +654,8 @@ footer p{
     height: 350px;
   }
   
-  .rotating-orbit {
+  .orbit-ring,
+  .rotating-nodes-container {
     width: 220px;
     height: 220px;
   }
@@ -669,24 +715,27 @@ footer p{
   </div>
 </div>
 
-<!-- ORBITAL ANIMATION SECTION (No Heading) -->
+<!-- ORBITAL ANIMATION SECTION -->
 <section class="orbital-section">
   <div class="orbital-container">
-    <!-- Center Circle -->
+    <!-- Center Circle with "Service" text -->
     <div class="center-circle">
-      <span>Our Service</span>
+      <span>Service</span>
     </div>
     
-    <!-- Rotating Orbit Ring -->
-    <div class="rotating-orbit">
-      <!-- Three Rotating Circles -->
-      <div class="rotating-node node-rapid">
+    <!-- Static Orbit Ring (dashed circle) -->
+    <div class="orbit-ring"></div>
+    
+    <!-- Rotating Container - only this rotates -->
+    <div class="rotating-nodes-container">
+      <!-- Three Circles - positioned equidistantly (like triangle corners) -->
+      <div class="rotating-node node-1">
         <span>Rapid</span>
       </div>
-      <div class="rotating-node node-quality">
+      <div class="rotating-node node-2">
         <span>Best Quality</span>
       </div>
-      <div class="rotating-node node-accurate">
+      <div class="rotating-node node-3">
         <span>Accurate</span>
       </div>
     </div>
