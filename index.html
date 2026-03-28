@@ -264,17 +264,11 @@ nav{
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* FIX THE MIRRORED/INVERTED CALL ICON */
+/* FIX MIRRORED CALL ICON - FLIP IT BACK TO NORMAL */
 .call-btn i,
 .address i.fa-phone-alt {
-  transform: scaleX(1) scaleY(1);
+  transform: scaleX(-1) !important;
   display: inline-block;
-  font-style: normal;
-}
-
-/* If the icon appears mirrored, uncomment the line below */
-.call-btn i {
-  transform: scaleX(1) !important;
 }
 
 .address{
