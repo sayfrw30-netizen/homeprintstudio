@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,27 +6,15 @@
 <title>Home Print Studio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <!DOCTYPE html>
 
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Print Studio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DME3JC2BGC"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DME3JC2BGC"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DME3JC2BGC');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DME3JC2BGC');
 </script>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* (rest of your code remains EXACTLY SAME) */
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -58,115 +45,51 @@ nav h2{display:flex;align-items:center;gap:12px;font-weight:700}
   background:#fff;
   padding:6px;
   box-shadow:0 6px 20px rgba(0,0,0,0.2);
-  transition:0.4s;
 }
 
-.logo:hover{transform:scale(1.2) rotate(6deg)}
-
-nav a{
-  text-decoration:none;
-  margin-left:20px;
-  color:#333;
+/* 🔥 NEW GRID ANIMATION */
+.grid-section{
   position:relative;
-  transition:0.3s;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;bottom:-5px;
-  width:0%;height:2px;
-  background:#6c63ff;
-  transition:0.3s;
-}
-
-nav a:hover::after{width:100%}
-nav a:hover{color:#6c63ff}
-
-/* HERO */
-header{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
-}
-
-.logo-large{
-  height:300px;
-  width:300px;
-  padding:20px;
-  border-radius:50%;
-  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  width:100%;
+  height:100vh;
   overflow:hidden;
-  transition: transform 0.4s ease;
-  animation:float 3s ease-in-out infinite;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0f0f0f;
 }
 
-.logo-large:hover{
-  transform: scale(1.2) translateY(-10px);
-}
-
-.logo-large img{
+#gridCanvas{
+  position:absolute;
   width:100%;
   height:100%;
-  object-fit:contain;
 }
 
-header h1{
-  font-size:clamp(40px,6vw,70px);
-  margin-top:10px;
-  animation:slideUp 1s ease forwards;
-  transition:0.3s;
+.grid-content{
+  position:relative;
+  z-index:2;
+  color:white;
+  text-align:center;
 }
 
-header h1:hover{
-  transform:scale(1.05);
-  color:#6c63ff;
+.grid-content img{
+  height:180px;
+  margin-bottom:15px;
 }
 
-header p{
-  font-size:20px;
-  animation:fadeIn 2s ease;
-  transition:0.3s;
+.grid-content h1{
+  font-size:50px;
 }
 
-header p:hover{color:#333;transform:scale(1.05)}
-
-button{
-  margin-top:20px;
-  padding:12px 25px;
-  border:none;
-  border-radius:30px;
-  background:#000;
-  color:#fff;
-  cursor:pointer;
-  transition:0.4s;
-}
-
-button:hover{
-  transform:scale(1.15);
-  background:#6c63ff;
+.grid-content p{
+  font-size:18px;
 }
 
 /* SERVICES */
 .container{padding:60px 20px;max-width:1100px;margin:auto}
 
-h2{
-  text-align:center;
-  margin-bottom:30px;
-  animation:fadeIn 1.5s ease;
-  transition:0.3s;
-}
-
-h2:hover{transform:scale(1.05);color:#6c63ff}
-
-/* ✅ UPDATED: single row layout */
 .services{
   display:flex;
-  justify-content:space-between;
   gap:20px;
   flex-wrap:wrap;
 }
@@ -175,54 +98,17 @@ h2:hover{transform:scale(1.05);color:#6c63ff}
   flex:1;
   min-width:250px;
   background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(10px);
   padding:25px;
   border-radius:20px;
   text-align:center;
-  transition:0.5s;
-  box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
-.service:hover{
-  transform:translateY(-15px) scale(1.1) rotate(1deg);
-  background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
-  color:white;
-}
-
-/* ✅ NEW: image styling */
 .service-img{
   width:100%;
   height:150px;
   object-fit:cover;
   border-radius:12px;
   margin-bottom:12px;
-  transition:0.4s;
-}
-
-.service:hover .service-img{
-  transform:scale(1.05);
-}
-
-.service h3{
-  transition:0.4s;
-}
-
-.service:hover h3{
-  transform:scale(1.2);
-}
-
-.service h3:hover{
-  color:#6c63ff;
-  transform:scale(1.1);
-}
-
-.service p{
-  transition:0.3s;
-}
-
-.service p:hover{
-  transform:scale(1.05);
-  color:#444;
 }
 
 /* CONTACT */
@@ -231,7 +117,6 @@ h2:hover{transform:scale(1.05);color:#6c63ff}
   padding:30px;
   border-radius:20px;
   background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(10px);
   text-align:center;
 }
 
@@ -243,12 +128,6 @@ h2:hover{transform:scale(1.05);color:#6c63ff}
   text-decoration:none;
   color:white;
   background:#6c63ff;
-  transition:0.4s;
-}
-
-.contact a:hover{
-  transform:scale(1.2);
-  background:#000;
 }
 
 footer{
@@ -257,98 +136,113 @@ footer{
   background:#111;
   color:#fff;
 }
-
-footer p{
-  transition:0.3s;
-}
-
-footer p:hover{
-  transform:scale(1.05);
-  color:#6c63ff;
-}
-
-/* ANIMATIONS */
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-20px)}
-  100%{transform:translateY(0)}
-}
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-@keyframes slideUp{
-  from{transform:translateY(60px);opacity:0}
-  to{transform:translateY(0);opacity:1}
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  nav{flex-direction:column;gap:10px;padding:15px}
-  nav div{display:flex;gap:15px}
-  .logo-large{height:160px;width:160px}
-}
 </style>
-
 </head>
 
 <body>
 
 <nav>
   <h2><img src="./logo.png" class="logo"> Home Print</h2>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
 </nav>
 
-<header>
-  <img src="./logo.png" class="logo-large">
-  <h1>Home Print Studio</h1>
-  <p>Your Local Print Solution</p>
-  <button onclick="document.getElementById('contact').scrollIntoView()">Contact Now</button>
-</header>
+<!-- 🔥 REPLACED HEADER WITH ANIMATION -->
+<div class="grid-section" id="gridSection">
+  <canvas id="gridCanvas"></canvas>
+
+  <div class="grid-content">
+    <img src="./logo.png">
+    <h1>Home Print Studio</h1>
+    <p>Your Local Print Solution</p>
+  </div>
+</div>
 
 <div class="container" id="services">
   <h2>Our Services</h2>
 
   <div class="services">
-<div class="service">
-  <img src="./printing.jpg" class="service-img">
-  <h3>Quick Printing</h3>
-  <p>Fast, high-quality prints.</p>
-</div>
+    <div class="service">
+      <img src="./printing.jpg" class="service-img">
+      <h3>Quick Printing</h3>
+      <p>Fast, high-quality prints.</p>
+    </div>
 
-<div class="service">
-  <img src="./scanning.jpg" class="service-img">
-  <h3>Scanning</h3>
-  <p>Clear and accurate scans.</p>
-</div>
+    <div class="service">
+      <img src="./scanning.jpg" class="service-img">
+      <h3>Scanning</h3>
+      <p>Clear and accurate scans.</p>
+    </div>
 
-<div class="service">
-  <img src="./photocopy.jpg" class="service-img">
-  <h3>Photocopy</h3>
-  <p>Affordable copies.</p>
-</div>
-
+    <div class="service">
+      <img src="./photocopy.jpg" class="service-img">
+      <h3>Photocopy</h3>
+      <p>Affordable copies.</p>
+    </div>
   </div>
 
   <div class="contact" id="contact">
     <h2>Contact Us</h2>
-
-<a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
-<a href="tel:+918839603922">Call Now</a>
-
-<p style="margin-top:20px;">8, Ojha Khali Kunjdo Ka Waas, Ratlam</p>
-
+    <a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
+    <a href="tel:+918839603922">Call Now</a>
+    <p style="margin-top:20px;">8, Ojha Khali Kunjdo Ka Waas, Ratlam</p>
   </div>
 </div>
 
 <footer>
   <p>© 2026 Home Print Studio</p>
 </footer>
+
+<!-- 🔥 ANIMATION SCRIPT -->
+<script>
+const canvas = document.getElementById("gridCanvas");
+const ctx = canvas.getContext("2d");
+
+let width, height;
+let offsetX = 0;
+let offsetY = 0;
+let mouseX = 0;
+let mouseY = 0;
+
+function resize(){
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+document.getElementById("gridSection").addEventListener("mousemove",(e)=>{
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function drawGrid(){
+  ctx.clearRect(0,0,width,height);
+
+  const size = 40;
+
+  for(let x = -size; x < width + size; x += size){
+    for(let y = -size; y < height + size; y += size){
+
+      let dist = Math.hypot(mouseX - x, mouseY - y);
+      let opacity = Math.max(0, 1 - dist / 300);
+
+      ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.8})`;
+
+      ctx.beginPath();
+      ctx.moveTo(x + offsetX, y + offsetY);
+      ctx.lineTo(x + size + offsetX, y + offsetY);
+      ctx.lineTo(x + offsetX, y + size + offsetY);
+      ctx.stroke();
+    }
+  }
+
+  offsetX = (offsetX + 0.5) % 40;
+  offsetY = (offsetY + 0.5) % 40;
+
+  requestAnimationFrame(drawGrid);
+}
+
+drawGrid();
+</script>
 
 </body>
 </html>
