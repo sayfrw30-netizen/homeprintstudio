@@ -48,7 +48,7 @@ nav{
 
 .logo:hover{transform:scale(1.2) rotate(6deg)}
 
-/* 🔥 UPDATED HERO BACKGROUND */
+/* HERO */
 .grid-section{
   position:relative;
   width:100%;
@@ -58,7 +58,6 @@ nav{
   align-items:center;
   justify-content:center;
 
-  /* ✅ soft colorful gradient */
   background: linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
 }
 
@@ -66,7 +65,7 @@ nav{
   position:absolute;
   width:100%;
   height:100%;
-  opacity:0.15; /* makes grid soft */
+  opacity:0.5; /* 🔥 increased visibility */
 }
 
 .grid-content{
@@ -76,7 +75,7 @@ nav{
   text-align:center;
 }
 
-/* LOGO STYLE */
+/* LOGO */
 .grid-content img{
   height:220px;
   width:220px;
@@ -186,7 +185,7 @@ footer{
   color:#fff;
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-20px)}
@@ -206,7 +205,6 @@ footer{
   <h2><img src="./logo.png" class="logo"> Home Print</h2>
 </nav>
 
-<!-- HERO -->
 <div class="grid-section" id="gridSection">
   <canvas id="gridCanvas"></canvas>
 
@@ -252,7 +250,6 @@ footer{
   <p>© 2026 Home Print Studio</p>
 </footer>
 
-<!-- GRID SCRIPT -->
 <script>
 const canvas = document.getElementById("gridCanvas");
 const ctx = canvas.getContext("2d");
@@ -284,9 +281,10 @@ function drawGrid(){
     for(let y = -size; y < height + size; y += size){
 
       let dist = Math.hypot(mouseX - x, mouseY - y);
-      let opacity = Math.max(0, 1 - dist / 300);
+      let opacity = Math.max(0.2, 1 - dist / 250);
 
-      ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.5})`;
+      /* 🔥 now slightly bluish grid instead of white */
+      ctx.strokeStyle = `rgba(0, 80, 120, ${opacity})`;
 
       ctx.beginPath();
       ctx.moveTo(x + offsetX, y + offsetY);
