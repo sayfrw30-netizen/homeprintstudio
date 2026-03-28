@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Print Studio</title>
+<title>Home Print Studio – Fast Printing Services in Ratlam</title>
+<meta name="description" content="Professional printing, scanning and photocopy services in Ratlam. Fast turnaround, quality guaranteed. Contact us via WhatsApp for quick service!">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DME3JC2BGC"></script>
@@ -32,20 +34,25 @@ html{scroll-behavior:smooth}
 nav{
   position:sticky;
   top:0;
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.85);
   backdrop-filter:blur(12px);
   padding:12px 20px;
   z-index:100;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-left{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 .nav-left h2{
-  font-size:20px;
+  font-size:22px;
+  background:linear-gradient(135deg,#ffd966,#c9a0dc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 
 /* LOGO */
@@ -82,7 +89,7 @@ nav{
   z-index:2;
   color:white;
   text-align:center;
-  padding:10px;
+  padding:20px;
 }
 
 /* MAIN LOGO BIGGER */
@@ -94,12 +101,16 @@ nav{
   object-fit:cover;
   margin:auto;
   display:block;
-
   background: radial-gradient(circle at center, #ffffff 60%, transparent 61%),
               linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
-
   box-shadow:0 0 0 12px rgba(255,255,255,0.2),0 20px 50px rgba(0,0,0,0.3);
   animation:float 3s ease-in-out infinite;
+  cursor:pointer;
+  transition:transform 0.3s;
+}
+
+.grid-content img:hover{
+  transform:scale(1.05);
 }
 
 /* TEXT CANVAS FIX */
@@ -109,62 +120,235 @@ nav{
   height:100px;
 }
 
-/* SERVICES */
-.container{padding:50px 15px;max-width:1100px;margin:auto}
+/* SERVICES SECTION */
+.container{padding:60px 20px;max-width:1200px;margin:auto}
+
+.section-title{
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:40px;
+  background:linear-gradient(135deg,#ffd966,#c9a0dc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 
 .services{
   display:flex;
-  gap:20px;
+  gap:30px;
   flex-wrap:wrap;
+  justify-content:center;
 }
 
 .service{
   flex:1;
-  min-width:250px;
+  min-width:280px;
   background:rgba(255,255,255,0.85);
-  padding:20px;
-  border-radius:20px;
+  padding:30px 25px;
+  border-radius:25px;
   text-align:center;
   transition:0.5s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  cursor:pointer;
+  animation:fadeInUp 0.6s ease-out;
 }
 
 .service:hover{
   transform:translateY(-12px) scale(1.05);
   background:linear-gradient(135deg,#ffd966,#c9a0dc,#76d7c4);
   color:white;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service:hover h3,
+.service:hover p{
+  color:white;
 }
 
 .service-img{
   width:100%;
-  height:140px;
+  height:160px;
   object-fit:cover;
-  border-radius:12px;
-  margin-bottom:10px;
+  border-radius:15px;
+  margin-bottom:20px;
+  transition:transform 0.3s;
 }
 
+.service:hover .service-img{
+  transform:scale(1.05);
+}
+
+.service h3{
+  font-size:1.5rem;
+  margin-bottom:12px;
+  color:#333;
+  transition:color 0.3s;
+}
+
+.service p{
+  color:#666;
+  line-height:1.6;
+  margin-bottom:15px;
+  transition:color 0.3s;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for service boxes */
+.service:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.service:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.service:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* CONTACT SECTION */
 .contact{
   margin-top:40px;
-  padding:25px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.85);
+  padding:35px;
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));
   text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contact h2{
+  margin-bottom:20px;
+  color:#333;
+}
+
+.contact-buttons{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:25px;
 }
 
 .contact a{
-  display:inline-block;
-  margin:8px;
-  padding:10px 18px;
-  border-radius:25px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 28px;
+  border-radius:50px;
   text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.whatsapp-btn{
+  background:#25D366;
   color:white;
+}
+
+.call-btn{
   background:#6c63ff;
+  color:white;
+}
+
+.whatsapp-btn:hover,.call-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* FIX THE MIRRORED/INVERTED CALL ICON */
+.call-btn i,
+.address i.fa-phone-alt {
+  transform: scaleX(1) scaleY(1);
+  display: inline-block;
+  font-style: normal;
+}
+
+/* If the icon appears mirrored, uncomment the line below */
+.call-btn i {
+  transform: scaleX(1) !important;
+}
+
+.address{
+  margin-top:20px;
+  padding:15px;
+  background:#f8f9fa;
+  border-radius:15px;
+}
+
+.address i{
+  margin-right:10px;
+  color:#6c63ff;
+}
+
+.address p{
+  margin:8px 0;
+  color:#555;
+}
+
+/* MAP CONTAINER */
+.map-container{
+  margin-top:20px;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-container iframe{
+  width:100%;
+  height:250px;
+  border:0;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.float-wa{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:#25D366;
+  color:white;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  text-decoration:none;
+  box-shadow:0 4px 15px rgba(37,211,102,0.4);
+  transition:0.3s;
+  z-index:1000;
+  animation:pulse 2s infinite;
+}
+
+.float-wa:hover{
+  transform:scale(1.1);
+  box-shadow:0 6px 20px rgba(37,211,102,0.6);
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,0.4);}
+  70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
 footer{
   text-align:center;
-  padding:15px;
+  padding:25px;
   background:#111;
   color:#fff;
+}
+
+footer p{
+  opacity:0.8;
 }
 
 @keyframes float{
@@ -173,11 +357,48 @@ footer{
   100%{transform:translateY(0)}
 }
 
-/* MOBILE FIX */
-@media(max-width:600px){
+/* MOBILE FIXES */
+@media(max-width:768px){
   .grid-content img{
-    height:200px;
+    height:180px;
+    width:180px;
+  }
+  
+  .section-title{
+    font-size:1.8rem;
+  }
+  
+  .service{
+    min-width:100%;
+  }
+  
+  .contact-buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+  
+  .contact a{
     width:200px;
+    justify-content:center;
+  }
+  
+  .float-wa{
+    width:50px;
+    height:50px;
+    font-size:25px;
+    bottom:20px;
+    right:20px;
+  }
+}
+
+@media(max-width:480px){
+  .container{
+    padding:40px 15px;
+  }
+  
+  .grid-content img{
+    height:140px;
+    width:140px;
   }
 }
 </style>
@@ -187,8 +408,8 @@ footer{
 
 <nav>
   <div class="nav-left">
-    <img src="./logo.png" class="logo">
-    <h2>Home Print</h2>
+    <img src="./logo.png" class="logo" alt="Home Print Studio Logo">
+    <h2>Home Print Studio</h2>
   </div>
 </nav>
 
@@ -196,42 +417,68 @@ footer{
   <canvas id="gridCanvas"></canvas>
 
   <div class="grid-content">
-    <img src="./logo.png">
+    <img src="./logo.png" alt="Home Print Studio">
     <canvas id="text1" class="text-canvas"></canvas>
     <canvas id="text2" class="text-canvas"></canvas>
   </div>
 </div>
 
 <div class="container">
-  <h2>Our Services</h2>
+  <h2 class="section-title">Our Services</h2>
 
   <div class="services">
     <div class="service">
-      <img src="./printing.jpg" class="service-img">
+      <img src="./printing.jpg" class="service-img" alt="Quick Printing">
       <h3>Quick Printing</h3>
       <p>Fast, high-quality prints.</p>
     </div>
 
     <div class="service">
-      <img src="./scanning.jpg" class="service-img">
+      <img src="./scanning.jpg" class="service-img" alt="Scanning">
       <h3>Scanning</h3>
       <p>Clear scans.</p>
     </div>
 
     <div class="service">
-      <img src="./photocopy.jpg" class="service-img">
+      <img src="./photocopy.jpg" class="service-img" alt="Photocopy">
       <h3>Photocopy</h3>
       <p>Affordable copies.</p>
     </div>
   </div>
 
+  <!-- CONTACT SECTION WITH MAP -->
   <div class="contact">
     <h2>Contact Us</h2>
-    <a href="https://wa.me/919179959714" target="_blank">WhatsApp</a>
-    <a href="tel:+918839603922">Call Now</a>
-    <p style="margin-top:15px;">8, Ojha Khali Kunjdo Ka Waas, Ratlam</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/919179959714" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="tel:+918839603922" class="call-btn">
+        <i class="fas fa-phone-alt"></i> Call Now
+      </a>
+    </div>
+    
+    <div class="address">
+      <i class="fas fa-map-marker-alt"></i>
+      <p><strong>Home Print Studio</strong></p>
+      <p>8, Ojha Khali Kunjdo Ka Waas, Ratlam, Madhya Pradesh - 457001</p>
+      <p><i class="fas fa-phone-alt"></i> +91 88396 03922</p>
+    </div>
+    
+    <!-- GOOGLE MAP EMBED -->
+    <div class="map-container">
+      <iframe 
+        src="https://maps.google.com/maps?q=8%2C%20Ojha%20Khali%20Kunjdo%20Ka%20Waas%2C%20Ratlam&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen="">
+      </iframe>
+    </div>
   </div>
 </div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/919179959714" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <footer>
   <p>© 2026 Home Print Studio</p>
@@ -257,7 +504,7 @@ function drawGrid(){
 
   for(let x=-40;x<w+40;x+=40){
     for(let y=-40;y<h+40;y+=40){
-      ctx.strokeStyle="rgba(0,120,180,0.5)";
+      ctx.strokeStyle="rgba(255,255,255,0.3)";
       ctx.lineWidth=1.5;
       ctx.strokeRect(x+offset%40,y+offset%40,40,40);
     }
@@ -315,6 +562,46 @@ function buildText(id,text,size){
 buildText("text1","Home Print Studio",60);
 buildText("text2","Your Local Print Solution",30);
 
+// Add schema markup for local business
+const script = document.createElement('script');
+script.type = 'application/ld+json';
+script.text = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Home Print Studio",
+  "image": "./logo.png",
+  "telephone": "+918839603922",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8, Ojha Khali Kunjdo Ka Waas",
+    "addressLocality": "Ratlam",
+    "addressRegion": "Madhya Pradesh",
+    "postalCode": "457001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 23.3300,
+    "longitude": 75.0400
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "10:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "₹",
+  "url": "https://homeprintstudio.vercel.app/"
+});
+document.head.appendChild(script);
 </script>
 
 </body>
