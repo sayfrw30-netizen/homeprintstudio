@@ -39,6 +39,7 @@ nav{
   padding:12px 20px;
   z-index:100;
   box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-left{
@@ -53,6 +54,7 @@ nav{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  transition: all 0.3s ease;
 }
 
 /* LOGO */
@@ -64,6 +66,12 @@ nav{
   background:white;
   padding:4px;
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 /* HERO */
@@ -106,11 +114,12 @@ nav{
   box-shadow:0 0 0 12px rgba(255,255,255,0.2),0 20px 50px rgba(0,0,0,0.3);
   animation:float 3s ease-in-out infinite;
   cursor:pointer;
-  transition:transform 0.3s;
+  transition:transform 0.3s, box-shadow 0.3s;
 }
 
 .grid-content img:hover{
   transform:scale(1.05);
+  box-shadow:0 0 0 15px rgba(255,255,255,0.3),0 25px 60px rgba(0,0,0,0.4);
 }
 
 /* TEXT CANVAS FIX */
@@ -131,6 +140,7 @@ nav{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  transition: all 0.3s ease;
 }
 
 .services{
@@ -147,7 +157,7 @@ nav{
   padding:30px 25px;
   border-radius:25px;
   text-align:center;
-  transition:0.5s;
+  transition:0.5s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
   cursor:pointer;
   animation:fadeInUp 0.6s ease-out;
@@ -171,7 +181,7 @@ nav{
   object-fit:cover;
   border-radius:15px;
   margin-bottom:20px;
-  transition:transform 0.3s;
+  transition:transform 0.5s ease;
 }
 
 .service:hover .service-img{
@@ -182,14 +192,14 @@ nav{
   font-size:1.5rem;
   margin-bottom:12px;
   color:#333;
-  transition:color 0.3s;
+  transition:color 0.3s ease;
 }
 
 .service p{
   color:#666;
   line-height:1.6;
   margin-bottom:15px;
-  transition:color 0.3s;
+  transition:color 0.3s ease;
 }
 
 /* Animation keyframes */
@@ -215,10 +225,10 @@ nav{
   animation-delay: 0.5s;
 }
 
-/* ORBITAL ANIMATION SECTION - Larger size */
+/* ORBITAL ANIMATION SECTION - Removed extra space */
 .orbital-section {
   background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  padding: 80px 20px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
@@ -227,18 +237,18 @@ nav{
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: 900px;
+  height: 600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Center Circle - Larger */
+/* Center Circle */
 .center-circle {
   position: absolute;
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   background: linear-gradient(135deg, #ffd966, #c9a0dc, #76d7c4);
   border-radius: 50%;
   display: flex;
@@ -247,44 +257,46 @@ nav{
   z-index: 10;
   box-shadow: 0 0 40px rgba(255,217,102,0.6);
   animation: centerPulse 2s ease-in-out infinite;
+  transition: all 0.3s ease;
 }
 
 .center-circle span {
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
   background: rgba(0,0,0,0.3);
   border-radius: 50%;
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Orbit Ring - Larger */
+/* Orbit Ring */
 .orbit-ring {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
   border: 2px dashed rgba(0,0,0,0.2);
+  transition: border-color 0.3s ease;
 }
 
-/* Container for rotating nodes - Larger */
+/* Container for rotating nodes */
 .rotating-nodes-container {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 480px;
+  height: 480px;
   animation: rotateOrbit 15s linear infinite;
 }
 
-/* Rotating Nodes - Larger */
+/* Rotating Nodes */
 .rotating-node {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background: linear-gradient(135deg, rgba(255,217,102,0.3), rgba(201,160,220,0.4));
   backdrop-filter: blur(8px);
   border-radius: 50%;
@@ -293,7 +305,7 @@ nav{
   justify-content: center;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid rgba(255,217,102,0.6);
   box-shadow: 0 0 20px rgba(255,217,102,0.2);
 }
@@ -307,36 +319,31 @@ nav{
 
 .rotating-node span {
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   padding: 10px;
   white-space: nowrap;
   display: inline-block;
   animation: counterRotate 15s linear infinite;
+  transition: color 0.3s ease;
 }
 
-/* Perfect 120° Spacing with larger dimensions */
-/* Radius = 300px (half of 600px) */
-/* Angles: 90°, 210°, 330° - each exactly 120° apart */
-
-/* Node 1: 90° (12 o'clock) */
+/* Perfect 120° Spacing - Adjusted for smaller size */
 .node-1 {
-  top: -25px;
-  left: 300px;
+  top: -20px;
+  left: 240px;
   transform: translate(-50%, -50%);
 }
 
-/* Node 2: 210° (7 o'clock position - exactly 120° from node 1) */
 .node-2 {
-  top: 495px;
-  left: 90px;
+  top: 396px;
+  left: 72px;
   transform: translate(-50%, -50%);
 }
 
-/* Node 3: 330° (5 o'clock position - exactly 120° from node 2) */
 .node-3 {
-  top: 495px;
-  left: 510px;
+  top: 396px;
+  left: 408px;
   transform: translate(-50%, -50%);
 }
 
@@ -358,7 +365,6 @@ nav{
   }
 }
 
-/* Center pulse animation */
 @keyframes centerPulse {
   0%, 100% {
     transform: scale(1);
@@ -370,7 +376,6 @@ nav{
   }
 }
 
-/* Individual floating animations for nodes */
 .rotating-node {
   animation: floatNode 3s ease-in-out infinite;
 }
@@ -392,7 +397,7 @@ nav{
     transform: translate(-50%, -50%) translateY(0);
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-12px);
+    transform: translate(-50%, -50%) translateY(-10px);
   }
 }
 
@@ -404,11 +409,18 @@ nav{
   background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));
   text-align:center;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
+
+.contact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .contact h2{
   margin-bottom:20px;
   color:#333;
+  transition: color 0.3s ease;
 }
 
 .contact-buttons{
@@ -427,7 +439,7 @@ nav{
   border-radius:50px;
   text-decoration:none;
   font-weight:600;
-  transition:0.3s;
+  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .whatsapp-btn{
@@ -441,8 +453,8 @@ nav{
 }
 
 .whatsapp-btn:hover,.call-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 /* FIX MIRRORED CALL ICON */
@@ -457,6 +469,11 @@ nav{
   padding:15px;
   background:#f8f9fa;
   border-radius:15px;
+  transition: all 0.3s ease;
+}
+
+.address:hover {
+  transform: scale(1.02);
 }
 
 .address i{
@@ -467,6 +484,7 @@ nav{
 .address p{
   margin:8px 0;
   color:#555;
+  transition: color 0.3s ease;
 }
 
 /* MAP CONTAINER */
@@ -475,6 +493,12 @@ nav{
   border-radius:15px;
   overflow:hidden;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .map-container iframe{
@@ -483,7 +507,7 @@ nav{
   border:0;
 }
 
-/* FLOATING WHATSAPP BUTTON */
+/* FLOATING WHATSAPP BUTTON - Only one on the right */
 .float-wa{
   position:fixed;
   bottom:30px;
@@ -499,13 +523,13 @@ nav{
   font-size:30px;
   text-decoration:none;
   box-shadow:0 4px 15px rgba(37,211,102,0.4);
-  transition:0.3s;
+  transition:all 0.3s ease;
   z-index:1000;
   animation:pulse 2s infinite;
 }
 
 .float-wa:hover{
-  transform:scale(1.1);
+  transform:scale(1.1) rotate(10deg);
   box-shadow:0 6px 20px rgba(37,211,102,0.6);
 }
 
@@ -515,21 +539,74 @@ nav{
   100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
+/* BACK TO TOP BUTTON */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 100px;
+  background: linear-gradient(135deg, #ffd966, #c9a0dc);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  border: none;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ORIGINAL FOOTER */
 footer{
   text-align:center;
   padding:25px;
   background:#111;
   color:#fff;
+  transition: background 0.3s ease;
 }
 
 footer p{
   opacity:0.8;
+  transition: opacity 0.3s ease;
+}
+
+footer:hover p {
+  opacity: 1;
 }
 
 @keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-15px)}
   100%{transform:translateY(0)}
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* MOBILE FIXES */
@@ -565,51 +642,58 @@ footer p{
     right:20px;
   }
   
+  .back-to-top {
+    bottom: 20px;
+    right: 90px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
   .orbital-container {
-    height: 600px;
-    max-width: 600px;
+    height: 450px;
   }
   
   .center-circle {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
   }
   
   .center-circle span {
-    width: 120px;
-    height: 120px;
-    font-size: 1.2rem;
+    width: 100px;
+    height: 100px;
+    font-size: 1rem;
   }
   
   .orbit-ring,
   .rotating-nodes-container {
-    width: 400px;
-    height: 400px;
+    width: 320px;
+    height: 320px;
   }
   
   .rotating-node {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
   
   .rotating-node span {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     white-space: normal;
   }
   
   .node-1 {
     top: -15px;
-    left: 200px;
+    left: 160px;
   }
   
   .node-2 {
-    top: 330px;
-    left: 60px;
+    top: 264px;
+    left: 48px;
   }
   
   .node-3 {
-    top: 330px;
-    left: 340px;
+    top: 264px;
+    left: 272px;
   }
 }
 
@@ -624,49 +708,48 @@ footer p{
   }
   
   .orbital-container {
-    height: 450px;
-    max-width: 450px;
+    height: 350px;
   }
   
   .center-circle {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
   }
   
   .center-circle span {
-    width: 90px;
-    height: 90px;
-    font-size: 0.9rem;
+    width: 80px;
+    height: 80px;
+    font-size: 0.8rem;
   }
   
   .orbit-ring,
   .rotating-nodes-container {
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
   }
   
   .rotating-node {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
   }
   
   .rotating-node span {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
   
   .node-1 {
     top: -10px;
-    left: 150px;
+    left: 130px;
   }
   
   .node-2 {
-    top: 247px;
-    left: 45px;
+    top: 214px;
+    left: 39px;
   }
   
   .node-3 {
-    top: 247px;
-    left: 255px;
+    top: 214px;
+    left: 221px;
   }
 }
 </style>
@@ -695,19 +778,19 @@ footer p{
   <h2 class="section-title">Our Services</h2>
 
   <div class="services">
-    <div class="service">
+    <div class="service reveal">
       <img src="./printing.jpg" class="service-img" alt="Quick Printing">
       <h3>Quick Printing</h3>
       <p>Fast, high-quality prints.</p>
     </div>
 
-    <div class="service">
+    <div class="service reveal">
       <img src="./scanning.jpg" class="service-img" alt="Scanning">
       <h3>Scanning</h3>
       <p>Clear scans.</p>
     </div>
 
-    <div class="service">
+    <div class="service reveal">
       <img src="./photocopy.jpg" class="service-img" alt="Photocopy">
       <h3>Photocopy</h3>
       <p>Affordable copies.</p>
@@ -715,20 +798,14 @@ footer p{
   </div>
 </div>
 
-<!-- ORBITAL ANIMATION SECTION - Larger size -->
-<section class="orbital-section">
+<!-- ORBITAL ANIMATION SECTION - No extra space now -->
+<section class="orbital-section reveal">
   <div class="orbital-container">
-    <!-- Center Circle with "Service" text -->
     <div class="center-circle">
       <span>Service</span>
     </div>
-    
-    <!-- Static Orbit Ring -->
     <div class="orbit-ring"></div>
-    
-    <!-- Rotating Container -->
     <div class="rotating-nodes-container">
-      <!-- Three Circles - Perfect 120° Spacing -->
       <div class="rotating-node node-1">
         <span>Rapid</span>
       </div>
@@ -744,7 +821,7 @@ footer p{
 
 <div class="container">
   <!-- CONTACT SECTION WITH MAP -->
-  <div class="contact">
+  <div class="contact reveal">
     <h2>Contact Us</h2>
     <div class="contact-buttons">
       <a href="https://wa.me/919179959714" target="_blank" class="whatsapp-btn">
@@ -762,7 +839,6 @@ footer p{
       <p><i class="fas fa-phone-alt"></i> +91 88396 03922</p>
     </div>
     
-    <!-- GOOGLE MAP EMBED -->
     <div class="map-container">
       <iframe 
         src="https://maps.google.com/maps?q=8%2C%20Ojha%20Khali%20Kunjdo%20Ka%20Waas%2C%20Ratlam&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -772,7 +848,12 @@ footer p{
   </div>
 </div>
 
-<!-- FLOATING WHATSAPP BUTTON -->
+<!-- BACK TO TOP BUTTON -->
+<button class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- FLOATING WHATSAPP BUTTON - Only one, on the right side -->
 <a href="https://wa.me/919179959714" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
@@ -858,6 +939,52 @@ function buildText(id,text,size){
 
 buildText("text1","Home Print Studio",60);
 buildText("text2","Your Local Print Solution",30);
+
+// BACK TO TOP BUTTON FUNCTIONALITY
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
+
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// SCROLL REVEAL ANIMATION
+const revealElements = document.querySelectorAll('.reveal');
+
+function checkReveal() {
+  revealElements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    if (elementTop < windowHeight - 100) {
+      element.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+// Add micro-animations to all buttons
+const allButtons = document.querySelectorAll('.whatsapp-btn, .call-btn, .float-wa');
+allButtons.forEach(button => {
+  button.addEventListener('click', function(e) {
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = '';
+    }, 150);
+  });
+});
 
 // Add schema markup for local business
 const script = document.createElement('script');
