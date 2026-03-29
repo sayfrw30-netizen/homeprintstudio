@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Home Print Studio – Fast Printing Services in Ratlam</title>
 <meta name="description" content="Professional printing, scanning and photocopy services in Ratlam. Fast turnaround, quality guaranteed. Contact us via WhatsApp for quick service!">
+
+<!-- PWA Meta Tags -->
+<meta name="theme-color" content="#ffd966">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Home Print">
+<link rel="apple-touch-icon" href="./logo.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./logo.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./logo.png">
+<link rel="manifest" href="data:application/manifest+json,{
+  \"name\": \"Home Print Studio\",
+  \"short_name\": \"Home Print\",
+  \"description\": \"Fast printing, scanning and photocopy services in Ratlam\",
+  \"start_url\": \"/\",
+  \"display\": \"standalone\",
+  \"theme_color\": \"#ffd966\",
+  \"background_color\": \"#fdfbfb\",
+  \"icons\": [
+    {
+      \"src\": \"./logo.png\",
+      \"sizes\": \"512x512\",
+      \"type\": \"image/png\",
+      \"purpose\": \"any maskable\"
+    }
+  ]
+}">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -39,7 +65,6 @@ nav{
   padding:12px 20px;
   z-index:100;
   box-shadow:0 2px 10px rgba(0,0,0,0.1);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-left{
@@ -54,10 +79,8 @@ nav{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  transition: all 0.3s ease;
 }
 
-/* LOGO */
 .logo{
   height:50px;
   width:50px;
@@ -66,12 +89,11 @@ nav{
   background:white;
   padding:4px;
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .logo:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 /* HERO */
@@ -100,7 +122,6 @@ nav{
   padding:20px;
 }
 
-/* MAIN LOGO BIGGER */
 .grid-content img{
   height:260px;
   width:260px;
@@ -119,17 +140,14 @@ nav{
 
 .grid-content img:hover{
   transform:scale(1.05);
-  box-shadow:0 0 0 15px rgba(255,255,255,0.3),0 25px 60px rgba(0,0,0,0.4);
 }
 
-/* TEXT CANVAS FIX */
 .text-canvas{
   width:100%;
   max-width:100%;
   height:100px;
 }
 
-/* SERVICES SECTION */
 .container{padding:60px 20px;max-width:1200px;margin:auto}
 
 .section-title{
@@ -140,7 +158,6 @@ nav{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  transition: all 0.3s ease;
 }
 
 .services{
@@ -202,7 +219,6 @@ nav{
   transition:color 0.3s ease;
 }
 
-/* Animation keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -214,18 +230,10 @@ nav{
   }
 }
 
-/* Stagger animation for service boxes */
-.service:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.service:nth-child(2) {
-  animation-delay: 0.3s;
-}
-.service:nth-child(3) {
-  animation-delay: 0.5s;
-}
+.service:nth-child(1) { animation-delay: 0.1s; }
+.service:nth-child(2) { animation-delay: 0.3s; }
+.service:nth-child(3) { animation-delay: 0.5s; }
 
-/* ORBITAL ANIMATION SECTION - Removed extra space */
 .orbital-section {
   background: linear-gradient(135deg, #fdfbfb, #ebedee);
   padding: 0;
@@ -244,7 +252,6 @@ nav{
   justify-content: center;
 }
 
-/* Center Circle */
 .center-circle {
   position: absolute;
   width: 180px;
@@ -257,7 +264,6 @@ nav{
   z-index: 10;
   box-shadow: 0 0 40px rgba(255,217,102,0.6);
   animation: centerPulse 2s ease-in-out infinite;
-  transition: all 0.3s ease;
 }
 
 .center-circle span {
@@ -274,17 +280,14 @@ nav{
   justify-content: center;
 }
 
-/* Orbit Ring */
 .orbit-ring {
   position: absolute;
   width: 480px;
   height: 480px;
   border-radius: 50%;
   border: 2px dashed rgba(0,0,0,0.2);
-  transition: border-color 0.3s ease;
 }
 
-/* Container for rotating nodes */
 .rotating-nodes-container {
   position: absolute;
   width: 480px;
@@ -292,7 +295,6 @@ nav{
   animation: rotateOrbit 15s linear infinite;
 }
 
-/* Rotating Nodes */
 .rotating-node {
   position: absolute;
   width: 120px;
@@ -307,14 +309,12 @@ nav{
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid rgba(255,217,102,0.6);
-  box-shadow: 0 0 20px rgba(255,217,102,0.2);
 }
 
 .rotating-node:hover {
   transform: scale(1.15);
   background: linear-gradient(135deg, rgba(255,217,102,0.6), rgba(201,160,220,0.7));
   border-color: #ffd966;
-  box-shadow: 0 0 30px rgba(255,217,102,0.5);
 }
 
 .rotating-node span {
@@ -325,83 +325,39 @@ nav{
   white-space: nowrap;
   display: inline-block;
   animation: counterRotate 15s linear infinite;
-  transition: color 0.3s ease;
 }
 
-/* Perfect 120° Spacing - Adjusted for smaller size */
-.node-1 {
-  top: -20px;
-  left: 240px;
-  transform: translate(-50%, -50%);
-}
-
-.node-2 {
-  top: 396px;
-  left: 72px;
-  transform: translate(-50%, -50%);
-}
-
-.node-3 {
-  top: 396px;
-  left: 408px;
-  transform: translate(-50%, -50%);
-}
+.node-1 { top: -20px; left: 240px; transform: translate(-50%, -50%); }
+.node-2 { top: 396px; left: 72px; transform: translate(-50%, -50%); }
+.node-3 { top: 396px; left: 408px; transform: translate(-50%, -50%); }
 
 @keyframes rotateOrbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes counterRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
 @keyframes centerPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 40px rgba(255,217,102,0.6);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 70px rgba(255,217,102,0.9);
-  }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255,217,102,0.6); }
+  50% { transform: scale(1.05); box-shadow: 0 0 70px rgba(255,217,102,0.9); }
 }
 
 .rotating-node {
   animation: floatNode 3s ease-in-out infinite;
 }
-
-.node-1 {
-  animation-delay: 0s;
-}
-
-.node-2 {
-  animation-delay: 0.5s;
-}
-
-.node-3 {
-  animation-delay: 1s;
-}
+.node-1 { animation-delay: 0s; }
+.node-2 { animation-delay: 0.5s; }
+.node-3 { animation-delay: 1s; }
 
 @keyframes floatNode {
-  0%, 100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px);
-  }
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
 }
 
-/* CONTACT SECTION */
 .contact{
   margin-top:40px;
   padding:35px;
@@ -420,7 +376,6 @@ nav{
 .contact h2{
   margin-bottom:20px;
   color:#333;
-  transition: color 0.3s ease;
 }
 
 .contact-buttons{
@@ -457,7 +412,6 @@ nav{
   box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* FIX MIRRORED CALL ICON */
 .call-btn i,
 .address i.fa-phone-alt {
   transform: scaleX(-1) !important;
@@ -484,21 +438,18 @@ nav{
 .address p{
   margin:8px 0;
   color:#555;
-  transition: color 0.3s ease;
 }
 
-/* MAP CONTAINER */
 .map-container{
   margin-top:20px;
   border-radius:15px;
   overflow:hidden;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .map-container:hover {
   transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .map-container iframe{
@@ -507,7 +458,6 @@ nav{
   border:0;
 }
 
-/* FLOATING WHATSAPP BUTTON - Only one on the right */
 .float-wa{
   position:fixed;
   bottom:30px;
@@ -530,7 +480,6 @@ nav{
 
 .float-wa:hover{
   transform:scale(1.1) rotate(10deg);
-  box-shadow:0 6px 20px rgba(37,211,102,0.6);
 }
 
 @keyframes pulse{
@@ -539,7 +488,6 @@ nav{
   100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
-/* BACK TO TOP BUTTON */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -570,16 +518,13 @@ nav{
 
 .back-to-top:hover {
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* ORIGINAL FOOTER */
 footer{
   text-align:center;
   padding:25px;
   background:#111;
   color:#fff;
-  transition: background 0.3s ease;
 }
 
 footer p{
@@ -597,7 +542,6 @@ footer:hover p {
   100%{transform:translateY(0)}
 }
 
-/* Scroll Reveal Animation */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -609,148 +553,37 @@ footer:hover p {
   transform: translateY(0);
 }
 
-/* MOBILE FIXES */
 @media(max-width:768px){
-  .grid-content img{
-    height:180px;
-    width:180px;
-  }
-  
-  .section-title{
-    font-size:1.8rem;
-  }
-  
-  .service{
-    min-width:100%;
-  }
-  
-  .contact-buttons{
-    flex-direction:column;
-    align-items:center;
-  }
-  
-  .contact a{
-    width:200px;
-    justify-content:center;
-  }
-  
-  .float-wa{
-    width:50px;
-    height:50px;
-    font-size:25px;
-    bottom:20px;
-    right:20px;
-  }
-  
-  .back-to-top {
-    bottom: 20px;
-    right: 90px;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
-  
-  .orbital-container {
-    height: 450px;
-  }
-  
-  .center-circle {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .center-circle span {
-    width: 100px;
-    height: 100px;
-    font-size: 1rem;
-  }
-  
-  .orbit-ring,
-  .rotating-nodes-container {
-    width: 320px;
-    height: 320px;
-  }
-  
-  .rotating-node {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .rotating-node span {
-    font-size: 0.75rem;
-    white-space: normal;
-  }
-  
-  .node-1 {
-    top: -15px;
-    left: 160px;
-  }
-  
-  .node-2 {
-    top: 264px;
-    left: 48px;
-  }
-  
-  .node-3 {
-    top: 264px;
-    left: 272px;
-  }
+  .grid-content img{ height:180px; width:180px; }
+  .section-title{ font-size:1.8rem; }
+  .service{ min-width:100%; }
+  .contact-buttons{ flex-direction:column; align-items:center; }
+  .contact a{ width:200px; justify-content:center; }
+  .float-wa{ width:50px; height:50px; font-size:25px; bottom:20px; right:20px; }
+  .back-to-top { bottom: 20px; right: 90px; width: 45px; height: 45px; font-size: 20px; }
+  .orbital-container { height: 450px; }
+  .center-circle { width: 120px; height: 120px; }
+  .center-circle span { width: 100px; height: 100px; font-size: 1rem; }
+  .orbit-ring, .rotating-nodes-container { width: 320px; height: 320px; }
+  .rotating-node { width: 80px; height: 80px; }
+  .rotating-node span { font-size: 0.75rem; white-space: normal; }
+  .node-1 { top: -15px; left: 160px; }
+  .node-2 { top: 264px; left: 48px; }
+  .node-3 { top: 264px; left: 272px; }
 }
 
 @media(max-width:480px){
-  .container{
-    padding:40px 15px;
-  }
-  
-  .grid-content img{
-    height:140px;
-    width:140px;
-  }
-  
-  .orbital-container {
-    height: 350px;
-  }
-  
-  .center-circle {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .center-circle span {
-    width: 80px;
-    height: 80px;
-    font-size: 0.8rem;
-  }
-  
-  .orbit-ring,
-  .rotating-nodes-container {
-    width: 260px;
-    height: 260px;
-  }
-  
-  .rotating-node {
-    width: 65px;
-    height: 65px;
-  }
-  
-  .rotating-node span {
-    font-size: 0.6rem;
-  }
-  
-  .node-1 {
-    top: -10px;
-    left: 130px;
-  }
-  
-  .node-2 {
-    top: 214px;
-    left: 39px;
-  }
-  
-  .node-3 {
-    top: 214px;
-    left: 221px;
-  }
+  .container{ padding:40px 15px; }
+  .grid-content img{ height:140px; width:140px; }
+  .orbital-container { height: 350px; }
+  .center-circle { width: 100px; height: 100px; }
+  .center-circle span { width: 80px; height: 80px; font-size: 0.8rem; }
+  .orbit-ring, .rotating-nodes-container { width: 260px; height: 260px; }
+  .rotating-node { width: 65px; height: 65px; }
+  .rotating-node span { font-size: 0.6rem; }
+  .node-1 { top: -10px; left: 130px; }
+  .node-2 { top: 214px; left: 39px; }
+  .node-3 { top: 214px; left: 221px; }
 }
 </style>
 </head>
@@ -766,7 +599,6 @@ footer:hover p {
 
 <div class="grid-section" id="gridSection">
   <canvas id="gridCanvas"></canvas>
-
   <div class="grid-content">
     <img src="./logo.png" alt="Home Print Studio">
     <canvas id="text1" class="text-canvas"></canvas>
@@ -776,20 +608,17 @@ footer:hover p {
 
 <div class="container">
   <h2 class="section-title">Our Services</h2>
-
   <div class="services">
     <div class="service reveal">
       <img src="./printing.jpg" class="service-img" alt="Quick Printing">
       <h3>Quick Printing</h3>
       <p>Fast, high-quality prints.</p>
     </div>
-
     <div class="service reveal">
       <img src="./scanning.jpg" class="service-img" alt="Scanning">
       <h3>Scanning</h3>
       <p>Clear scans.</p>
     </div>
-
     <div class="service reveal">
       <img src="./photocopy.jpg" class="service-img" alt="Photocopy">
       <h3>Photocopy</h3>
@@ -798,75 +627,47 @@ footer:hover p {
   </div>
 </div>
 
-<!-- ORBITAL ANIMATION SECTION - No extra space now -->
 <section class="orbital-section reveal">
   <div class="orbital-container">
-    <div class="center-circle">
-      <span>Service</span>
-    </div>
+    <div class="center-circle"><span>Service</span></div>
     <div class="orbit-ring"></div>
     <div class="rotating-nodes-container">
-      <div class="rotating-node node-1">
-        <span>Rapid</span>
-      </div>
-      <div class="rotating-node node-2">
-        <span>Best Quality</span>
-      </div>
-      <div class="rotating-node node-3">
-        <span>Accurate</span>
-      </div>
+      <div class="rotating-node node-1"><span>Rapid</span></div>
+      <div class="rotating-node node-2"><span>Best Quality</span></div>
+      <div class="rotating-node node-3"><span>Accurate</span></div>
     </div>
   </div>
 </section>
 
 <div class="container">
-  <!-- CONTACT SECTION WITH MAP -->
   <div class="contact reveal">
     <h2>Contact Us</h2>
     <div class="contact-buttons">
-      <a href="https://wa.me/919179959714" target="_blank" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-      <a href="tel:+918839603922" class="call-btn">
-        <i class="fas fa-phone-alt"></i> Call Now
-      </a>
+      <a href="https://wa.me/919179959714" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="tel:+918839603922" class="call-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
-    
     <div class="address">
       <i class="fas fa-map-marker-alt"></i>
       <p><strong>Home Print Studio</strong></p>
       <p>8, Ojha Khali Kunjdo Ka Waas, Ratlam, Madhya Pradesh - 457001</p>
       <p><i class="fas fa-phone-alt"></i> +91 88396 03922</p>
     </div>
-    
     <div class="map-container">
-      <iframe 
-        src="https://maps.google.com/maps?q=8%2C%20Ojha%20Khali%20Kunjdo%20Ka%20Waas%2C%20Ratlam&t=&z=16&ie=UTF8&iwloc=&output=embed"
-        allowfullscreen="">
-      </iframe>
+      <iframe src="https://maps.google.com/maps?q=8%2C%20Ojha%20Khali%20Kunjdo%20Ka%20Waas%2C%20Ratlam&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen=""></iframe>
     </div>
   </div>
 </div>
 
-<!-- BACK TO TOP BUTTON -->
-<button class="back-to-top" id="backToTop">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
-<!-- FLOATING WHATSAPP BUTTON - Only one, on the right side -->
-<a href="https://wa.me/919179959714" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<a href="https://wa.me/919179959714" target="_blank" class="float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
   <p>© 2026 Home Print Studio</p>
 </footer>
 
 <script>
-// MOVING GRID (INFINITE MOTION)
 const canvas = document.getElementById("gridCanvas");
 const ctx = canvas.getContext("2d");
-
 let w,h,offset=0;
 
 function resize(){
@@ -879,7 +680,6 @@ window.addEventListener("resize",resize);
 function drawGrid(){
   ctx.clearRect(0,0,w,h);
   offset+=0.5;
-
   for(let x=-40;x<w+40;x+=40){
     for(let y=-40;y<h+40;y+=40){
       ctx.strokeStyle="rgba(255,255,255,0.3)";
@@ -887,43 +687,30 @@ function drawGrid(){
       ctx.strokeRect(x+offset%40,y+offset%40,40,40);
     }
   }
-
   requestAnimationFrame(drawGrid);
 }
 drawGrid();
 
-// PARTICLE BUILD TEXT (RESPONSIVE SIZE)
 function buildText(id,text,size){
   const c=document.getElementById(id);
   const x=c.getContext("2d");
-
   c.width=innerWidth;
   c.height=100;
-
   let fontSize = innerWidth < 500 ? size*0.6 : size;
-
   x.font=fontSize+"px Poppins";
   x.fillStyle="white";
   x.textAlign="center";
   x.fillText(text,c.width/2,70);
-
   let particles=[];
   let data=x.getImageData(0,0,c.width,c.height).data;
-
   for(let y=0;y<c.height;y+=3){
     for(let xPos=0;xPos<c.width;xPos+=3){
       let i=(y*c.width+xPos)*4;
       if(data[i+3]>150){
-        particles.push({
-          tx:xPos,
-          ty:y,
-          x:Math.random()*c.width,
-          y:Math.random()*c.height
-        });
+        particles.push({ tx:xPos, ty:y, x:Math.random()*c.width, y:Math.random()*c.height });
       }
     }
   }
-
   function animate(){
     x.clearRect(0,0,c.width,c.height);
     particles.forEach(p=>{
@@ -940,9 +727,7 @@ function buildText(id,text,size){
 buildText("text1","Home Print Studio",60);
 buildText("text2","Your Local Print Solution",30);
 
-// BACK TO TOP BUTTON FUNCTIONALITY
 const backToTopButton = document.getElementById('backToTop');
-
 window.addEventListener('scroll', () => {
   if (window.pageYOffset > 300) {
     backToTopButton.classList.add('show');
@@ -950,43 +735,38 @@ window.addEventListener('scroll', () => {
     backToTopButton.classList.remove('show');
   }
 });
-
 backToTopButton.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// SCROLL REVEAL ANIMATION
 const revealElements = document.querySelectorAll('.reveal');
-
 function checkReveal() {
   revealElements.forEach(element => {
     const elementTop = element.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
-    
     if (elementTop < windowHeight - 100) {
       element.classList.add('active');
     }
   });
 }
-
 window.addEventListener('scroll', checkReveal);
 window.addEventListener('load', checkReveal);
 
-// Add micro-animations to all buttons
 const allButtons = document.querySelectorAll('.whatsapp-btn, .call-btn, .float-wa');
 allButtons.forEach(button => {
   button.addEventListener('click', function(e) {
     this.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      this.style.transform = '';
-    }, 150);
+    setTimeout(() => { this.style.transform = ''; }, 150);
   });
 });
 
-// Add schema markup for local business
+// PWA Install Prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
 const script = document.createElement('script');
 script.type = 'application/ld+json';
 script.text = JSON.stringify({
@@ -1002,14 +782,7 @@ script.text = JSON.stringify({
     "addressRegion": "Madhya Pradesh",
     "postalCode": "457001",
     "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 23.3300,
-    "longitude": 75.0400
-  },
-  "priceRange": "₹",
-  "url": "https://homeprintstudio.vercel.app/"
+  }
 });
 document.head.appendChild(script);
 </script>
